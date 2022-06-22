@@ -5,12 +5,13 @@ import Correct from "./assets/icon/correct.png";
 import Failed from "./assets/icon/failed.png";
 import PasswordValidity from "./components/PasswordValidity";
 import useWindowDimension from "./hooks/useWindowDimension";
-
+import ReCAPTCHA from "react-google-recaptcha";
+ 
 const InitialState = {
   name: "",
   lname: "",
   rollno: "",
-  class: "",
+  div: "",
   phone: "",
   email: "",
   password: "",
@@ -32,8 +33,6 @@ const regex = new RegExp(
 export default function FormArea() {
   const [person, setPerson] = useState(InitialState);
 
-  const [btnDisable, setBtnDisable] = useState(true);
-
   // Focused state
 
   const [isFocused, setisFocused] = useState(InitialFocused);
@@ -53,15 +52,33 @@ export default function FormArea() {
   const [isvalidPassword, setIsValidPassword] = useState(false);
   const [isvalidCnf, setIsvalidCnf] = useState(false);
   const [isvalidEmail, setisvalidEmail] = useState(false);
+  const [isHuman, setIsHuman] = useState(false);
 
+  function btnIsDisable() {
+    if (
+      isHuman &&
+      person.name != "" &&
+      person.lname != "" &&
+      person.rollno != "" &&
+      person.div != "" &&
+      person.phone != "" &&
+      isvalidEmail &&
+      isvalidPassword &&
+      isvalidCnf
+    ) {
+      return false;
+    }
+    return true;
+  }
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submmitted");
     if (
+      isHuman &&
       person.name &&
       person.lname &&
       person.rollno &&
-      person.class &&
+      person.div &&
       person.phone &&
       isvalidEmail &&
       isvalidPassword &&
@@ -69,10 +86,10 @@ export default function FormArea() {
     ) {
       let id = v4();
       // console.log(id);
-      let newPerson = { ...person, id: id };
-      // console.log(newPerson);
+      let newPerson = { ...person};
+      console.log(newPerson);
       fetch(
-        "https://xmyhcbq8xe.execute-api.ap-south-1.amazonaws.com/dev/register",
+        "https://13luceihu1.execute-api.ap-south-1.amazonaws.com/dev/ecell/register",
         {
           method: "POST",
           headers: {
@@ -132,6 +149,13 @@ export default function FormArea() {
     setPerson({ ...person, [name]: value });
   };
 
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setPerson({ ...person, token: value });
+    setIsHuman(true)
+  }
+   
+
   // console.log("password valid :", isvalidPassword);
   // console.log(person);
   // console.log("focuseState : ", isFocused);
@@ -180,16 +204,16 @@ export default function FormArea() {
             <div className="input-group">
               <input
                 type="text"
-                name="class"
-                id="class"
+                name="div"
+                id="div"
                 className="input"
-                value={person.class}
+                value={person.div}
                 onChange={handleChange}
                 required
                 placeholder="eg. BE-1"
               />
-              <label htmlFor="class" className="input-label">
-                Class
+              <label htmlFor="div" className="input-label">
+                Div
               </label>
             </div>
 
@@ -378,10 +402,19 @@ export default function FormArea() {
             )}
           </div>
         </div>
+        <ReCAPTCHA 
+        sitekey="6Lekeo0gAAAAANQn_eAw4gHugk-P_V8sdFex94e9"
+        onChange={onChange}/>
 
-        <button type="submit" onClick={handleSubmit} className="register-btn">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="register-btn"
+          disabled={btnIsDisable()}
+        >
           register
         </button>
+        
       </form>
     </>
   );
