@@ -1,0 +1,283 @@
+// fonts import
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+// styling
+
+:root {
+  --primary-color: #3498db;
+  --white: #fff;
+  --green: #27ae60;
+  --red: #ff1717;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 1em 1.5em;
+  div {
+    p {
+      color: var(--white);
+      font-size: 4em;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
+
+main {
+  border-radius: 10px;
+}
+
+//
+
+.container {
+  width: 100%;
+  // border-radius: 10px;
+  height: 100%;
+  background-color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 500;
+  color: #0d2535;
+  font-size: 2.25em;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+}
+
+.register-btn {
+  border: none;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 1em;
+  text-transform: capitalize;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 400;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
+.register-btn:disabled,
+.register-btn[disabled] {
+  background-color: #9a9a9a;
+}
+
+.form-control {
+  width: 100%;
+  height: auto;
+  margin-top: 7.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px 0;
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+  color: #bababa;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  color: #0d2535;
+  padding: 10px;
+  border-radius: 4px;
+  font: inherit;
+  outline: 1.5px solid #e7e7e7;
+  background-color: transparent;
+  font-weight: 500;
+  cursor: pointer;
+}
+.input-label {
+  text-transform: capitalize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+//
+.input:focus ~ .input-label,
+.input:valid ~ .input-label {
+  transform: translate(10px, -12.5px) scale(0.8);
+  background-color: #fff;
+  color: #3498db;
+  padding-inline: 5px;
+}
+
+.input:is(:focus, :valid) {
+  outline-color: #3498db;
+}
+
+::placeholder {
+  opacity: 0;
+}
+:focus::placeholder {
+  opacity: 1;
+  color: #bababa;
+}
+
+#fname {
+  width: 100%;
+}
+
+.name-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+.root-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+form {
+  width: 100%;
+  padding: 0 15%;
+}
+
+.password-validity {
+  margin-top: 2.5%;
+  margin-left: 10px;
+  p {
+    font-size: 0.9em;
+    color: #180000;
+  }
+}
+
+.cnf-validity {
+  margin-left: 10px;
+  p {
+    font-size: 0.8em;
+  }
+}
+
+.email-validity {
+  margin-left: 7.5px;
+  p {
+    font-size: 0.8em;
+  }
+}
+
+.text-muted {
+  // list-style: none;
+  margin-left: 5px;
+  li {
+    margin: 5px 15px;
+    font-size: 0.75em;
+  }
+}
+
+.text-danger {
+  color: var(--red);
+}
+
+.text-success {
+  color: var(--green);
+}
+
+.email {
+  overflow-x: auto;
+}
+
+.popup {
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 5%;
+}
+
+.success {
+  background-color: #cbf0d3;
+  border: 1px solid #9ee0ad;
+  color: #155724;
+}
+.danger {
+  background-color: #f3d7da;
+  color: #721c24;
+  border: 1px solid #eea8af;
+}
+
+@media screen and (max-width: 900px) {
+  .root-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  form {
+    width: 100%;
+    padding: 0;
+  }
+
+  .container {
+    padding: 1.2em 1.5em;
+    display: block;
+    // overflow-y: auto;
+  }
+  h1 {
+    font-size: 1.7em;
+    text-align: center;
+  }
+  #fname,
+  #lname {
+    width: 100%;
+  }
+  .register-btn {
+    margin-bottom: 50px;
+  }
+}
+
+.hr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2.5%;
+}
+
+hr {
+  border: 1px solid #e7e7e7;
+  width: 50%;
+  background-color: #e7e7e7;
+}

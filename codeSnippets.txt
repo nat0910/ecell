@@ -1,0 +1,59 @@
+    fetch("http://localhost:5000/test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(person),
+    });
+
+
+    //////////////////////////////////////////////////////////////// 
+
+              <div className="input-group">
+            <input
+              type="password"
+              name="cnfpassword"
+              id="cnfpassword"
+              className="input"
+              value={person.cnfpassword}
+              onChange={onChangCnf}
+              required
+              onFocus={() => {
+                setisFocused({ ...isFocused, cnfpassword: true });
+              }}
+            />
+            <label htmlFor="confirm" className="input-label">
+              confirm password
+            </label>
+            {isFocused.cnfpassword && (
+              <img
+                src={isvalidCnf ? Correct : Failed}
+                alt=""
+                width={20}
+                height={20}
+                style={{
+                  position: "absolute",
+                  top: 12.5,
+                  right: width < 900 ? 10 : -30,
+                }}
+              />
+            )}
+            {isFocused.cnfpassword && (
+              <div
+                className="cnf-validity"
+                style={{
+                  fontSize: "1em",
+                  marginTop: "2.5%",
+                }}
+              >
+                <p
+                  className="text-danger"
+                  style={{
+                    display: isvalidCnf ? "none" : "block",
+                  }}
+                >
+                  Password are not matching
+                </p>
+              </div>
+            )}
+          </div>
