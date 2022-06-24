@@ -1,0 +1,132 @@
+.timeline-wrapper {
+  max-width: 1080px;
+  // background-color: aqua;
+  position: relative;
+  margin: 15px auto;
+  padding: 0;
+  height: 100%;
+}
+
+.timeline-wrapper .row {
+  display: flex;
+  margin-top: 15px;
+}
+
+.timeline-wrapper .row-1 {
+  justify-content: flex-start;
+}
+.timeline-wrapper .row-2 {
+  justify-content: flex-end;
+}
+
+.timeline-wrapper .row section {
+  background: #fff;
+  border-radius: 7.5px;
+  width: calc(50% - 30px);
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.7em 0;
+  position: relative;
+}
+.timeline-wrapper .row section::before {
+  background: #ffffff;
+  content: "";
+  width: 17.5px;
+  height: 17.5px;
+  position: absolute;
+  top: 28px;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.row-1 section::before,
+.row-3 section::before {
+  right: -7.5px;
+}
+
+.row-2 section::before {
+  left: -7.5px;
+}
+
+.timeline-wrapper .center-line {
+  position: absolute;
+  height: 90%;
+  width: 5px;
+  background-color: #ff7a7a;
+  left: 50%;
+  border-radius: 1rem;
+}
+
+.row section .details {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  .title {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}
+
+.bottom {
+  a {
+    text-transform: capitalize;
+    text-decoration: none;
+    background: #ff7a7a;
+    font-weight: 500;
+    padding: 8px 16px;
+    color: #e9fffd;
+    border-radius: 5px;
+  }
+}
+
+.row section p {
+  text-align: left;
+}
+
+@media screen and (max-width: 900px) {
+  .timeline-wrapper {
+    height: 100%;
+  }
+  .timeline-wrapper .center-line {
+    left: 0px;
+    height: 100%;
+  }
+  .timeline-wrapper .row {
+    margin: 20px 0 3px 40px;
+  }
+
+  .timeline-wrapper .row section {
+    width: 100%;
+    padding: 20px 20px;
+    gap: 1em;
+  }
+  .row-1 section::before,
+  .row-2 section::before,
+  .row-3 section::before {
+    left: -7.5px;
+  }
+
+  .row section .details {
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+  }
+  .row p {
+    font-size: 0.8em;
+  }
+
+  .bottom {
+    a {
+      text-transform: capitalize;
+      text-decoration: none;
+      background: #ff7a7a;
+      font-weight: 500;
+      padding: 8px 12px;
+      color: #e9fffd;
+      border-radius: 5px;
+      font-size: 0.95em;
+    }
+  }
+}
