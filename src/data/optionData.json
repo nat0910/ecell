@@ -1,0 +1,96 @@
+{
+  "teamSizeOption": [
+    {
+      "label": " -- Select Your Team Size --",
+      "value": "none"
+    },
+    {
+      "label": "Solo",
+      "value": "solo"
+    },
+    {
+      "label": "2-10",
+      "value": "2-10"
+    },
+    {
+      "label": "10-50",
+      "value": "10-50"
+    },
+    {
+      "label": "50-100",
+      "value": "50-100"
+    },
+    {
+      "label": "100+",
+      "value": "100+"
+    }
+  ],
+  "stageOption": [
+    {
+      "label": " -- Select Your Stage --",
+      "value": "none"
+    },
+    {
+      "label": "Ideation",
+      "value": "ideation"
+    },
+    {
+      "label": "Validation",
+      "value": "validation"
+    },
+    {
+      "label": "Early Traction",
+      "value": "early traction"
+    },
+    {
+      "label": "Scaling",
+      "value": "scaling"
+    }
+  ],
+  "fundedOption": [
+    {
+      "label": " -- Select Your Stage --",
+      "value": "none"
+    },
+    {
+      "label": "Funded",
+      "value": true
+    },
+    {
+      "label": "Bootstrap",
+      "value": false
+    }
+  ],
+  "productOption": [
+    {
+      "label": " -- Select Your StartUp Type --",
+      "value": "none"
+    },
+    {
+      "label": "Product Based",
+      "value": "product"
+    },
+    {
+      "label": "Service Based",
+      "value": "product"
+    }
+  ],
+  "interestOption":[
+    {
+      "label": " -- You are Interested in :  --",
+      "value": "none"
+    },
+    {
+      "label": "Investors",
+      "value": "investors"
+    },
+    {
+      "label": "Incubators",
+      "value": "incubators"
+    },
+    {
+      "label": "Both",
+      "value": "both"
+    }
+  ]
+}

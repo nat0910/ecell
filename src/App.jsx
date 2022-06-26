@@ -1,101 +1,57 @@
 import { useState } from "react";
-import logo from "./logo.svg";
-import SakecEcellLogo from "./assets/svg/SakecEcellLogo";
-import useWindowDimension from "./hooks/useWindowDimension";
-import FormArea from "./formArea";
-import SignUp from "./assets/icon/Standup meeting-bro.png";
+import "./css/style.css";
+import useWindow from "./hooks/useWindow";
+import FormArea from "./components/FormArea";
+import projectPillarLogo from "./assets/svg/Project-Pillar-Logo.svg";
+import ecellSakecLogo from "./assets/svg/Ecell-Sakec-Logo.svg";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  const { width, height } = useWindowDimension();
-
-  const styles = {
-    width: width < 900 ? 130 : 200,
-    height: width < 900 ? 140 : 200,
-    fill: "#fff",
-    top: 10,
-  };
-
-  // console.log(`width=  ${width - 1000}`, "height= " + height);
-
-  // console.log(SignUp);
-
-  const sign_up_conatiner = {};
+  const { height, width } = useWindow();
 
   return (
-    <>
-      <ul className="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-
+    <div
+      className="base-container"
+      style={{
+        // backgroundImage: `url(${background})`,
+        height: height,
+        width: width,
+      }}
+    >
       <div
-        className="root-container"
+        className="container"
         style={{
-          height: height,
+          width: width < 900 ? width : "60%",
+          height: width < 900 ? "auto" : "87.5%",
+          // paddingBottom: width < 900 ? "250px" : "",
         }}
       >
-        <header
-          style={{
-            height: width < 900 ? "" : "100%",
-          }}
-        >
-          <SakecEcellLogo {...styles} />
-
-          <div
-            style={{
-              display: width < 900 ? "none" : "block",
-            }}
-          >
-            <img src={SignUp} alt="" width={500} height={500} />
-            {/* <SignUpIllustration /> */}
-            <p
-              style={{
-                display: width < 900 ? "none" : "block",
-              }}
-            >
-              Welcome to Ecell
-            </p>
-          </div>
-        </header>
-        <main
-          style={{
-            height: height,
-            width: "100%",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              borderRadius: width < 900 ? "20px 20px 0 0" : "20px 0 0 20px",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            {/* <div className="popup success ">
-              <p>You have been register!! 😊</p>
-            </div> */}
-
-            <div className="cont-header">
-              <h1>Register</h1>
+        <div className="header">
+          <div className="logo-area">
+            <div className="logo">
+              <img
+                src={ecellSakecLogo}
+                alt="Ecell-Sakec-Logo"
+                width="100%"
+                height="100%"
+              />
             </div>
-            <div className="hr">
-              <hr />
+            <div className="logo">
+              <img
+                src={projectPillarLogo}
+                alt="Project-Pillar-Logo"
+                width="100%"
+                height="100%"
+              />
             </div>
-            <FormArea />
           </div>
-        </main>
+          <h1>project pillar Registration form </h1>
+        </div>
+
+        <FormArea height={height} width={width} />
       </div>
-    </>
+    </div>
   );
 }
 

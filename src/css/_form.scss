@@ -1,0 +1,116 @@
+.form-area {
+  overflow-y: auto;
+  width: 75%;
+  background-color: #fff;
+
+  height: auto;
+  padding: 50px;
+  overflow-y: scroll;
+  border-radius: 10px;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    padding: 35px 45px;
+    border-radius: 20px;
+  }
+}
+
+.form-control {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1.5fr);
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3em 2em;
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+  color: #bababa;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  color: #0d2535;
+  padding: 10px;
+  border-radius: 4px;
+  font: inherit;
+  outline: 1.5px solid #e7e7e7;
+  background-color: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  overflow-x: auto;
+}
+.input-label {
+  text-transform: capitalize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transform-origin: left;
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+//
+.input:focus ~ .input-label,
+.input:valid ~ .input-label,
+textarea:focus ~ .input-label {
+  transform: translate(10px, -12.5px) scale(0.8);
+  background-color: #ffffff;
+  color: #3498db;
+  padding-inline: 5px;
+}
+
+.input:is(:focus, :valid) {
+  outline-color: #3498db;
+}
+
+::placeholder {
+  opacity: 0;
+}
+
+:focus::placeholder {
+  opacity: 1;
+  color: #bababa;
+}
+
+.validity {
+  margin-left: 7.5px;
+  p {
+    font-size: 0.8em;
+    text-align: left;
+  }
+}
+.text-danger {
+  color: #ff1717;
+}
+
+.text-success {
+  color: var(#27ae60);
+}
+
+.register-btn {
+  border: none;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 500;
+  margin: 10% 0;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.register-btn:disabled,
+.register-btn[disabled] {
+  background-color: #9a9a9a;
+}
+
+.register {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
